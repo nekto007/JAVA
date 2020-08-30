@@ -59,8 +59,7 @@ public class PhoneBook {
 
     public static String formatPhoneNumber(String number) {
         String cleanNumber = number.replaceAll("[^0-9]", "");
-        return "+7" + " " + cleanNumber.substring(1, 4) + " " +
-                cleanNumber.substring(4, 7) + " " + cleanNumber.substring(7, 9) + " " + cleanNumber.substring(9);
+        return String.format("+7 %s %s %s %s", cleanNumber.substring(1, 4), cleanNumber.substring(4, 7), cleanNumber.substring(7, 9), cleanNumber.substring(9));
     }
 
     public static void add(String[][] book, String name, String number) {
