@@ -4,12 +4,13 @@ import java.util.Arrays;
 public class PhoneBook {
 
     public static void main(String[] args) {
-        String[][] book = new String[1][2];
+        String[][] book = new String[0][2];
         String name = "";
         String phoneNumber = "";
         Scanner scanner = new Scanner(System.in);
         boolean isCorrectName = false;
         boolean isCorrectPhone = false;
+        book = arrayLengthChange(book, book.length+1);
         while (!isCorrectName) {
             System.out.print("Введите Фамилию, Имя, Отчество (через пробел): ");
             name = scanner.nextLine();
@@ -73,5 +74,11 @@ public class PhoneBook {
             System.out.println(Arrays.deepToString(book));
             System.out.printf("%s: %s", book[0][0], book[0][1]);
         }
+    }
+
+    public static String[][] arrayLengthChange(String[][] arr, int newLength) {
+        String[][] arrNew = new String[newLength][2];
+        System.arraycopy(arr, 0, arrNew, 0, arr.length);
+        return arrNew;
     }
 }
